@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 1000px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [38.16, -96.96],
+              zoom: 5
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 15,
+               minZoom: 4
+            }).addTo(map);
+
+
+   var heartIcon = L.icon({
+              iconUrl: 'heart.png', // url that links to the icon image file
+              iconSize:     [38, 38], // size of the icon image in pixels
+              iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+              popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+          });
+
+
+
+
+          var marker1 = L.marker([42.02889,-73.331111], {icon: heartIcon}).addTo(map);
+          var marker2 = L.marker([44.838650, -87.270967], {icon: heartIcon}).addTo(map);
+          var marker3 = L.marker([41.312800, -88.970100], {icon: heartIcon}).addTo(map);
+
+
+       
+
+var pic1 = '<img src="https://newenglandwaterfalls.com/bigpics/Great-Falls-(Housatonic).jpg" alt="BBH" width="250">';
+var pic2 = '<img src="https://wisconsinshipwrecks.org/Images/CityofGlasgow2Aerial2000WHS.jpg" alt="FSU" width="250">';
+var pic3 = '<img src="https://www.starvedrocklodge.com/wp-content/uploads/2019/08/starved-rock-state-park-01-768x512.jpg" alt="FSU" width="250">';
+
+marker1.bindPopup('Great Falls Of The Housatonic' + '<br>' + pic1);
+marker2.bindPopup('Glasgow aka The Barge'+'<br>' + pic2);
+marker3.bindPopup('Starved Rock State Park'+'<br>'+ pic3);
+
+
+
+
+        </script>
+   </body>
+</html>
+
+
